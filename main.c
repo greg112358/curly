@@ -1,12 +1,26 @@
 #include "raylib.h"
 
 #define RAYGUI_IMPLEMENTATION
+#define MAX_CURL_HELP_SIZE 1000
 #include "raygui.h"
 
 int main()
 {
-    InitWindow(400, 200, "raygui - controls test suite");
+    //
+    InitWindow(1200, 1200, "Curly");
     SetTargetFPS(60);
+
+    FILE *fp;
+    int status;
+    char path[MAX_CURL_HELP_SIZE];
+    fp = popen("curl --help all", "r");
+    if(fp == NULL){
+        printf("oh shit");
+        return 1;
+    }
+    while(fgets(path,MAX_CURL_HELP_SIZE,fp)!=NULL){
+        printf("%s",path);
+    }
 
     bool showMessageBox = false;
 
