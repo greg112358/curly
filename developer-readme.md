@@ -261,3 +261,5 @@ After completing these steps, you should have:
 - ✅ A test program that compiles and runs
 
 You can now clone this project to any machine, run the install commands for that platform, and use `make run` to build and execute your raylib programs.
+
+NOTE: LOOK INTO CMAKE FOR THIS PROJECT

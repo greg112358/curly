@@ -10,19 +10,19 @@ int main()
     InitWindow(1200, 1200, "Curly");
     SetTargetFPS(60);
 
+    bool showMessageBox = false;
+    char* messageBoxMessage = "Default Message";
     FILE *fp;
     int status;
     char path[MAX_CURL_HELP_SIZE];
     fp = popen("curl --help all", "r");
     if(fp == NULL){
-        printf("oh shit");
-        return 1;
+        showMessageBox = true;
+        messageBoxMessage = "ffj";
     }
     while(fgets(path,MAX_CURL_HELP_SIZE,fp)!=NULL){
         printf("%s",path);
     }
-
-    bool showMessageBox = false;
 
     while (!WindowShouldClose())
     {
